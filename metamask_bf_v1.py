@@ -36,7 +36,7 @@ seed_words_test = {1:'abandon',
 12:'accident'}
 
 
-EXTENSION_PATH = "C:/Users/yutab/AppData/Local/Google/Chrome/User Data/Default/Extensions/nkbihfbeogaeaoehlefnkodbefgpgknn/10.12.1_0.crx"
+EXTENSION_PATH = "" #enter the path to the metamask .crx file here
 
 opt = webdriver.ChromeOptions()
 opt.add_extension(EXTENSION_PATH)
