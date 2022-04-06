@@ -6,13 +6,14 @@ import time
 import functions as mf #this file 'functions.py' is in the same folder. it is required for this program to run
 #!!!
 
-EXTENSION_PATH = "C:/Users/yutab/AppData/Local/Google/Chrome/User Data/Default/Extensions/nkbihfbeogaeaoehlefnkodbefgpgknn/10.12.1_0.crx"
+EXTENSION_PATH = "" #enter the path to your .crx file here
+mm_extension_id = "" #enter your metamask extension id here
 opt = webdriver.ChromeOptions()
 opt.add_extension(EXTENSION_PATH)
 driver = webdriver.Chrome(options=opt)
 
 driver.switch_to.window(driver.window_handles[1]) #switch to first window
-driver.get('chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html#initialize/create-password/import-with-seed-phrase') #go to seed phrase page
+driver.get('chrome-extension://'+mm_extension_id+'/home.html#initialize/create-password/import-with-seed-phrase') #go to seed phrase page
 time.sleep(1)
 driver.find_element(by = By.XPATH, value= '//*[@id="import-srp__srp-word-0"]') #select textbox
 
@@ -108,7 +109,7 @@ while looper:
             driver.find_element(by = By.XPATH, value = '/html/body/div[1]/div/div[1]/div/div[2]/div[2]/div/div').click() #click on profile
             driver.find_element(by = By.XPATH, value = '//*[@id="app-content"]/div/div[3]/div[2]/button').click() #click 'lock' account
             time.sleep(0.01)
-            driver.get('chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html#restore-vault')
+            driver.get('chrome-extension://'+mm_extension_id+'/home.html#restore-vault')
         else:
             looper = False
             print("DONE",s, '$', str(usd))
